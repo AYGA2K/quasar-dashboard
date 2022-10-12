@@ -2,7 +2,7 @@
   <div>
     <apexchart
       type="bar"
-      height="350"
+      height="280"
       :options="chartOptions"
       :series="series"
     ></apexchart>
@@ -16,23 +16,50 @@ export default {
     return {
       series: [
         {
-          data: [21, 22, 10, 28, 16, 21, 13, 30],
+          data: [210, 220, 100],
         },
       ],
       chartOptions: {
-        chart: {
-          height: 350,
-          type: 'bar',
-          events: {
-            click: function (chart, w, e) {
-              console.log(chart, w, e);
-            },
-          },
+        grid: {
+          show: false,
         },
 
+        title: {
+          text: 'example chart',
+          align: 'left',
+          margin: 10,
+          offsetX: 0,
+          offsetY: 0,
+          floating: false,
+          style: {
+            fontSize: '14px',
+            fontWeight: 'bold',
+            fontFamily: undefined,
+            color: '#fff  ',
+          },
+        },
+        fill: {
+          colors: ['#9267ff'],
+          type: 'gradient',
+          gradient: {
+            type: 'vertical',
+            shadeIntensity: 1,
+            stops: [70], // optional, if not defined - uses the shades of same color in series
+            inverseColors: false,
+            opacityFrom: 1,
+            opacityTo: 0,
+
+            colorStops: [],
+          },
+        },
+        chart: {
+          show: false,
+        },
+        tooltip: { enabled: false },
         plotOptions: {
           bar: {
-            columnWidth: '45%',
+            borderRadius: 15,
+            columnWidth: '30%',
             distributed: true,
           },
         },
@@ -44,23 +71,36 @@ export default {
         },
         xaxis: {
           categories: [
-            ['John', 'Doe'],
-            ['Joe', 'Smith'],
-            ['Jake', 'Williams'],
-            'Amber',
-            ['Peter', 'Brown'],
-            ['Mary', 'Evans'],
-            ['David', 'Wilson'],
-            ['Lily', 'Roberts'],
+            ['210', 'Doe'],
+            ['200', 'Smith'],
+            ['100', 'Williams'],
           ],
+          axisTicks: {
+            show: false,
+          },
+          axisBorder: {
+            show: false,
+          },
           labels: {
             style: {
-              fontSize: '12px',
+              colors: '#fff',
+              fontSize: '16px',
+              fontWeight: 900,
             },
           },
+        },
+        yaxis: {
+          show: false,
         },
       },
     };
   },
 };
 </script>
+<style lang="scss">
+tspan:nth-child(even) {
+  font-weight: 800;
+  fill: #667cb1;
+  font-size: small;
+}
+</style>
