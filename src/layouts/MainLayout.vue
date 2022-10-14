@@ -275,7 +275,9 @@ export default defineComponent({
 .text-1rem {
   font-size: x-small;
 }
-
+.scroll {
+  overflow: hidden !important;
+}
 aside {
   position: fixed !important;
   overflow: hidden !important;
