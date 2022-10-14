@@ -2,7 +2,7 @@
   <div>
     <apexchart
       type="bar"
-      height="280"
+      height="285"
       :options="chartOptions"
       :series="series"
     ></apexchart>
@@ -34,7 +34,7 @@ export default {
           style: {
             fontSize: '14px',
             fontWeight: 'bold',
-            fontFamily: undefined,
+
             color: '#fff  ',
           },
         },

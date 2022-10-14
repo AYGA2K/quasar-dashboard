@@ -1,7 +1,16 @@
 <template>
   <q-layout view="lHr lpR fFf" class="bg-primary">
     <q-header class="row justify-center">
-      <div class="q-ma-sm bg-linear-secondary-primary border-radius-40px">
+      <q-icon
+        color="white"
+        name="menu"
+        class="q-ma-md cursor-pointer fixed-top-left lt-md"
+        @click="drawerLeft = !drawerLeft"
+        size="md"
+      />
+      <div
+        class="q-mt-sm bg-linear-secondary-primary border-radius-40px"
+      >
         <q-input
           rounded
           borderless
@@ -30,17 +39,15 @@
     <q-drawer
       side="left"
       v-model="drawerLeft"
-      show-if-above
       :mini="miniState"
       :width="200"
-      :breakpoint="500"
       class="bg-primary"
     >
       <div>
         <q-icon
           color="white"
           name="menu"
-          class="q-ma-md cursor-pointer"
+          class="q-ma-md cursor-pointer gt-md"
           @click="miniState = !miniState"
           size="md"
         />
@@ -55,7 +62,12 @@
           <q-item-section> Inbox </q-item-section>
         </q-item>
 
-        <q-item active clickable v-ripple active-class="my-active-class">
+        <q-item
+          active
+          clickable
+          v-ripple
+          active-class="my-active-class"
+        >
           <q-item-section avatar>
             <q-icon name="star" />
           </q-item-section>
@@ -76,19 +88,21 @@
             <q-icon name="drafts" />
           </q-item-section>
 
-          <q-item-section> Drafts </q-item-section>
+          <q-item-section>
+            Drafts
+          </q-item-section>
         </q-item>
       </q-list>
     </q-drawer>
     <q-drawer
       side="right"
       v-model="drawerRight"
-      show-if-above
-      :width="400"
-      :breakpoint="500"
-      class="bg-primary"
+      :width="350"
+      class="bg-primary q-pt-lg"
     >
-      <q-list class="bg-secondary q-ma-md q-pa-md border-radius-15px">
+      <q-list
+        class="bg-secondary q-ma-md q-pa-md border-radius-15px"
+      >
         <div class="row justify-end items-center">
           <q-icon
             class="q-mx-sm"
@@ -97,23 +111,37 @@
             name="notifications"
           />
           <q-avatar class="q-mx-md" size="md">
-            <img src="https://cdn.quasar.dev/img/avatar.png" />
+            <img
+              src="https://cdn.quasar.dev/img/avatar.png"
+            />
           </q-avatar>
         </div>
         <div class="q-mx-sm">
-          <p class="text-white text-bold">Recent Orders</p>
-          <div class="row list-text justify-between text-subtitle2">
+          <p class="text-white text-bold">
+            Recent Orders
+          </p>
+          <div
+            class="row list-text justify-between text-subtitle2"
+          >
             <p>Orders</p>
             <p class="q-px-lg">Amount</p>
           </div>
           <div class="q-gutter-y-md">
-            <div class="row list-text justify-between">
+            <div
+              class="row list-text justify-between"
+            >
               <q-avatar size="lg" square>
-                <img src="https://cdn.quasar.dev/img/avatar.png" />
+                <img
+                  src="https://cdn.quasar.dev/img/avatar.png"
+                />
               </q-avatar>
               <div>
-                <div class="text-white">Thrsea Web</div>
-                <div class="text-1rem">2 minutes ago</div>
+                <div class="text-white">
+                  Thrsea Web
+                </div>
+                <div class="text-1rem">
+                  2 minutes ago
+                </div>
               </div>
               <p
                 class="text-white bg-primary q-px-lg q-py-sm border-radius-10px"
@@ -121,13 +149,21 @@
                 1000$
               </p>
             </div>
-            <div class="row list-text justify-between">
+            <div
+              class="row list-text justify-between"
+            >
               <q-avatar size="lg" square>
-                <img src="https://cdn.quasar.dev/img/avatar.png" />
+                <img
+                  src="https://cdn.quasar.dev/img/avatar.png"
+                />
               </q-avatar>
               <div>
-                <div class="text-white">Thrsea Web</div>
-                <div class="text-1rem">2 minutes ago</div>
+                <div class="text-white">
+                  Thrsea Web
+                </div>
+                <div class="text-1rem">
+                  2 minutes ago
+                </div>
               </div>
               <p
                 class="text-white bg-primary q-px-lg q-py-sm border-radius-10px"
@@ -135,13 +171,21 @@
                 1000$
               </p>
             </div>
-            <div class="row list-text justify-between">
+            <div
+              class="row list-text justify-between"
+            >
               <q-avatar size="lg" square>
-                <img src="https://cdn.quasar.dev/img/avatar.png" />
+                <img
+                  src="https://cdn.quasar.dev/img/avatar.png"
+                />
               </q-avatar>
               <div>
-                <div class="text-white">Thrsea Web</div>
-                <div class="text-1rem">2 minutes ago</div>
+                <div class="text-white">
+                  Thrsea Web
+                </div>
+                <div class="text-1rem">
+                  2 minutes ago
+                </div>
               </div>
               <p
                 class="text-white bg-primary q-px-lg q-py-sm border-radius-10px"
@@ -152,7 +196,9 @@
           </div>
         </div>
       </q-list>
-      <div class="bg-secondary q-ma-md q-pa-md border-radius-15px">
+      <div
+        class="bg-secondary q-ma-md q-pa-md border-radius-15px"
+      >
         <ApexChart></ApexChart>
       </div>
     </q-drawer>
@@ -163,10 +209,16 @@
 </template>
 
 <script lang="ts">
-import { defineAsyncComponent, defineComponent } from 'vue';
+import {
+  defineAsyncComponent,
+  defineComponent,
+} from 'vue';
 
 const ApexChart = defineAsyncComponent(
-  () => import('src/components/charts/Examplechart.vue')
+  () =>
+    import(
+      'src/components/charts/Examplechart.vue'
+    )
 );
 export default defineComponent({
   components: {
@@ -181,8 +233,8 @@ export default defineComponent({
     return {
       miniState: false,
       text: '',
-      drawerLeft: false,
-      drawerRight: false,
+      drawerLeft: true,
+      drawerRight: true,
     };
   },
 });
@@ -190,7 +242,11 @@ export default defineComponent({
 
 <style lang="scss">
 .bg-linear-secondary-primary {
-  background: linear-gradient(144deg, rgba(21, 46, 95, 1) 20%, $primary);
+  background: linear-gradient(
+    144deg,
+    rgba(21, 46, 95, 1) 20%,
+    $primary
+  );
 }
 .border-radius-40px {
   border-radius: 40px;
@@ -218,5 +274,11 @@ export default defineComponent({
 }
 .text-1rem {
   font-size: x-small;
+}
+.q-drawer {
+  overflow: hidden !important;
+}
+aside {
+  position: fixed !important;
 }
 </style>
