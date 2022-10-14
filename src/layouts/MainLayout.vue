@@ -278,8 +278,4 @@ export default defineComponent({
 .scroll {
   overflow: hidden !important;
 }
-aside {
-  position: fixed !important;
-  overflow: hidden !important;
-}
 </style>
