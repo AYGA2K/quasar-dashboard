@@ -275,9 +275,7 @@ export default defineComponent({
 .text-1rem {
   font-size: x-small;
 }
-.q-drawer {
-  overflow: hidden !important;
-}
+
 aside {
   position: fixed !important;
 }
