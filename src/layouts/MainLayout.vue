@@ -278,5 +278,6 @@ export default defineComponent({
 
 aside {
   position: fixed !important;
+  overflow: hidden !important;
 }
 </style>
