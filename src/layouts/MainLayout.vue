@@ -38,6 +38,7 @@
 
     <q-drawer
       side="left"
+      show-if-above
       v-model="drawerLeft"
       :mini="miniState"
       :width="200"
@@ -96,6 +97,7 @@
     </q-drawer>
     <q-drawer
       side="right"
+      show-if-above
       v-model="drawerRight"
       :width="350"
       class="bg-primary q-pt-lg"
@@ -233,8 +235,8 @@ export default defineComponent({
     return {
       miniState: false,
       text: '',
-      drawerLeft: true,
-      drawerRight: true,
+      drawerLeft: false,
+      drawerRight: false,
     };
   },
 });
@@ -277,5 +279,8 @@ export default defineComponent({
 }
 .scroll {
   overflow: hidden !important;
+}
+aside {
+  position: fixed !important;
 }
 </style>
